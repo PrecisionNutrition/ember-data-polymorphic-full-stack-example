@@ -14,6 +14,7 @@
 ActiveRecord::Schema.define(version: 20140702163140) do
 
   create_table "drawings", force: true do |t|
+    t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

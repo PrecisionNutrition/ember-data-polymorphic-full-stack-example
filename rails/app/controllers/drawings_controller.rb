@@ -1,9 +1,9 @@
 class DrawingsController < ApplicationController
   def index
-    render json: Drawing.all
+    respond_with Drawing.all
   end
 
   def show
-    render json: Drawing.find(params[:id])
+    respond_with Drawing.find(params[:id])
   end
 end

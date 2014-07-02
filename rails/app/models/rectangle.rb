@@ -1,0 +1,2 @@
+class Rectangle < Shape
+end

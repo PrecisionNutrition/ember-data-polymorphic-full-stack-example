@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Emberpaint</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {{BASE_TAG}}
+
+    <link rel="stylesheet" href="assets/vendor.css">
+    <link rel="stylesheet" href="assets/emberpaint.css">
+  </head>
+  <body>
+    <script>
+      window.EmberpaintENV = {{ENV}};
+      window.EmberENV = window.EmberpaintENV.EmberENV;
+    </script>
+    <script src="assets/vendor.js"></script>
+    <script src="assets/emberpaint.js"></script>
+    <script>
+      window.Emberpaint = require('emberpaint/app')['default'].create(EmberpaintENV.APP);
+    </script>
+  </body>
+</html>

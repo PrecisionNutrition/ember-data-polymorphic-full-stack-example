@@ -1,22 +1,20 @@
 <h3>{{title}}</h3>
 
-<svg version="1.1"
-     baseProfile="full"
-     width="300" height="200"
-     xmlns="http://www.w3.org/2000/svg">
-
-     {{#each shapes}}
-      <rect {{bind-attr width=width}} {{bind-attr height=height}}
-            {{bind-attr x=x}} {{bind-attr y=y}} {{bind-attr fill=fill}}/>
-     {{/each}}
-</svg>
+{{#svg-container}}
+  {{#each shape in shapes}}
+    {{svg-display shape=shape}}
+  {{/each}}
+{{/svg-container}}
 
 {{#each shapes}}
-  <pre>
-    X: {{x}}
-    Y: {{y}}
-    Width: {{width}}
-    Height: {{height}}
-    Fill: {{fill}}
-  </pre>
+  <div>
+    <h3>Shape</h3>
+    <pre>
+      X: {{input type="number" value=x}}
+      Y: {{input type="number" value=y}}
+      Width: {{input type="number" value=width}}
+      Height: {{input type="number" value=height}}
+      Fill: {{input value=fill}}
+    </pre>
+  </div>
 {{/each}}

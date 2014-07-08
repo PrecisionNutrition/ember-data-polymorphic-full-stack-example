@@ -1,0 +1,2 @@
+class Triangle < Shape
+end

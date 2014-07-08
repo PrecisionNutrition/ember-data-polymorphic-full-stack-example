@@ -8,7 +8,7 @@ class CreateShapes < ActiveRecord::Migration
       t.integer :x
       t.integer :y
 
-      # For rectangles
+      # For rectangles + triangles
       t.string  :fill
       t.string  :width
       t.string  :height

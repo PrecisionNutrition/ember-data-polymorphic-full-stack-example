@@ -1,15 +1,10 @@
 <h3>{{title}}</h3>
 
-<svg version="1.1"
-     baseProfile="full"
-     width="300" height="200"
-     xmlns="http://www.w3.org/2000/svg">
-
-     {{#each shapes}}
-      <rect {{bind-attr width=width}} {{bind-attr height=height}}
-            {{bind-attr x=x}} {{bind-attr y=y}} {{bind-attr fill=fill}}/>
-     {{/each}}
-</svg>
+{{#svg-container}}
+  {{#each shapes}}
+    {{svg-rect width=width height=height x=x y=y fill=fill}}
+  {{/each}}
+{{/svg-container}}
 
 {{#each shapes}}
   <pre>

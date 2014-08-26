@@ -1,7 +1,7 @@
 `import Em from 'ember';`
 
 SVGDisplay = Em.Component.extend
-  template: Em.Handlebars.compile '{{render-component "shapeComponent" shape=shape}}'
+  layout: Em.Handlebars.compile '{{render-component "shapeComponent" shapeBinding="shape"}}'
   shapeType: Em.computed.alias 'shape.shapeType'
 
   shapeComponent: (->

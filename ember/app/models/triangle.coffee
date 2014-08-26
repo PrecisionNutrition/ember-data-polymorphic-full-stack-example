@@ -8,4 +8,9 @@ Triangle = Shape.extend
   height: attr 'string'
   fill:   attr 'string'
 
+Triangle.reopenClass
+  FIXTURES: [
+    { id: 3, x: 0, y: 0, width: 200, height: 100, fill: 'blue' }
+  ]
+
 `export default Triangle;`

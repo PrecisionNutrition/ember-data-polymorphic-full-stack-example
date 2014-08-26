@@ -7,4 +7,14 @@ Drawing = DS.Model.extend
 
   shapes: hasMany 'shape', polymorphic: true, async: true
 
+Drawing.reopenClass
+  FIXTURES: [
+    { id: 1, title: "A house", shapes: [
+        { id: 1, type: 'rectangle' },
+        { id: 2, type: 'rectangle' },
+        { id: 3, type: 'triangle' }
+      ]
+    }
+  ]
+
 `export default Drawing;`

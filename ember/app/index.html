@@ -7,20 +7,15 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    {{BASE_TAG}}
+    {{content-for 'head'}}
 
     <link rel="stylesheet" href="assets/vendor.css">
     <link rel="stylesheet" href="assets/emberpaint.css">
   </head>
   <body>
-    <script>
-      window.EmberpaintENV = {{ENV}};
-      window.EmberENV = window.EmberpaintENV.EmberENV;
-    </script>
+    {{content-for 'body'}}
+
     <script src="assets/vendor.js"></script>
     <script src="assets/emberpaint.js"></script>
-    <script>
-      window.Emberpaint = require('emberpaint/app')['default'].create(EmberpaintENV.APP);
-    </script>
   </body>
 </html>

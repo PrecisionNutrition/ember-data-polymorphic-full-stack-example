@@ -1,11 +1,14 @@
-`import DS from 'ember-data';`
+`import DS from 'ember-data'`
+`import Em from 'ember'`
 
-attr = DS.attr
+{ attr, belongsTo } = DS
 
 Shape = DS.Model.extend
   x: attr 'number'
   y: attr 'number'
 
-  shapeType: (-> @constructor.toString() ).property()
+  shapeType: Em.computed -> @constructor.typeKey
+  
+  drawing: belongsTo 'drawing', inverse: 'shapes'
 
-`export default Shape;`
+`export default Shape`

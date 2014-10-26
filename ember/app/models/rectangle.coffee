@@ -1,7 +1,7 @@
 `import DS from 'ember-data';`
 `import Shape from 'emberpaint/models/shape';`
 
-attr = DS.attr
+{ attr } = DS
 
 Rectangle = Shape.extend
   width:  attr 'string'

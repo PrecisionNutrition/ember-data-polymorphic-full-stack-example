@@ -1,10 +1,7 @@
 `import DS from "ember-data"`
+`import mapType from "emberpaint/map-type"`
 
 ApplicationAdapter = DS.ActiveModelAdapter.extend
-  pathForType: (type) -> 
-    if type is 'quadrangle'
-      'rectangles'
-    else
-      @_super(type)
+  pathForType: (type) -> @_super mapType(type)
 
 `export default ApplicationAdapter`

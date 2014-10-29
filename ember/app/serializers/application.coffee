@@ -1,16 +1,12 @@
 `import DS from "ember-data"`
+`import mapType from "emberpaint/map-type"`
 
 ApplicationSerializer = DS.ActiveModelSerializer.extend
-  typeForRoot: (key) ->
-    if key.toUpperCase() is 'RECTANGLE'
-      'quadrangle'
-    else
-      @_super(key)
+  typeForRoot: (key) -> @_super mapType(key)
 
   serializeIntoHash: (data, type, record, options) ->
-    if type.typeKey is 'quadrangle'
-      data['rectangle'] = @serialize(record, options)
-    else
-      @_super(data, type, record, options)
+    typeKey = type.typeKey
+    key = mapType(typeKey)
+    data[key] = @serialize(record, options)
 
 `export default ApplicationSerializer`

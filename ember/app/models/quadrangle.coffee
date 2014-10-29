@@ -3,9 +3,9 @@
 
 { attr } = DS
 
-Rectangle = Shape.extend
+Quadrangle = Shape.extend
   width:  attr 'string'
   height: attr 'string'
   fill:   attr 'string'
 
-`export default Rectangle;`
+`export default Quadrangle;`

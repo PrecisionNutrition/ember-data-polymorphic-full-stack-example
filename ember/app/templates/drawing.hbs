@@ -1,12 +1,12 @@
 <h3>{{title}}</h3>
 
 {{#svg-container}}
-  {{#each shape in shapes}}
+  {{#each model.shapes as |shape|}}
     {{svg-display shape=shape}}
   {{/each}}
 {{/svg-container}}
 
-{{#each shapes}}
+{{#each model.shapes}}
   <div>
     <h3>Shape</h3>
     <pre>

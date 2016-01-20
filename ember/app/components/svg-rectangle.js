@@ -1,13 +1,15 @@
 import SVGShape from 'emberpaint/components/svg-shape';
 
-const SVGRect = SVGShape.extend({
-  createSVGElement(draw) {
-    return draw.rect();
-  },
+const { computed } = Em;
+const { alias } = computed;
 
-  _fill: SVGShape.svgAttrBinding('fill'),
-  _width: SVGShape.svgAttrBinding('width'),
-  _height: SVGShape.svgAttrBinding('height')
+const SVGRectangle = SVGShape.extend({
+  tagName: 'rect',
+
+  attributeBindings: ['width', 'height'],
+
+  width: alias('shape.width'),
+  height: alias('shape.height')
 });
 
-export default SVGRect;
+export default SVGRectangle;

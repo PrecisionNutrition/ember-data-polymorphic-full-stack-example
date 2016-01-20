@@ -1,42 +1,21 @@
 import Em from 'ember';
 
-let svgAttrBinding = function(name) {
-  return (function() {
-    let svgElement = this.get('svgElement');
-
-    if (!svgElement) {
-      return;
-    }
-
-    let newValue = this.get("shape").get(name);
-
-    return svgElement[name](newValue);
-  }).observes(`shape.${name}`).on('svgRendered');
-};
+const { computed } = Em;
+const { alias } = computed;
 
 const SVGShape = Em.Component.extend({
-  parentDraw: (function() {
-    let findDraw = function(view) {
-      if (view) {
-        return view.get('draw') || findDraw(view.get('parentView'));
-      }
-    };
+  tagName: '',
 
-    return findDraw(this);
-  }).property(),
+  attributeBindings: ['x', 'y', 'style'],
 
-  createSVGElement: Em.K,
+  x: alias('shape.x'),
+  y: alias('shape.y'),
 
-  renderSVG: (function() {
-    this.set('svgElement', this.createSVGElement(this.get('parentDraw')));
+  style: computed('shape.fill', function() {
+    let fill = this.get('shape.fill');
 
-    return this.trigger('svgRendered');
-  }).on('didInsertElement'),
-
-  _x: svgAttrBinding('x'),
-  _y: svgAttrBinding('y')
+    return `fill:${fill}`;
+  }),
 });
-
-SVGShape.svgAttrBinding = svgAttrBinding;
 
 export default SVGShape;

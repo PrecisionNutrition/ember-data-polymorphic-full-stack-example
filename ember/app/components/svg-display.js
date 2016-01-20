@@ -4,6 +4,8 @@ const { computed } = Em;
 const { alias } = computed;
 
 const SVGDisplay = Em.Component.extend({
+  tagName: '',
+
   shapeType: alias('shape.shapeType'),
 
   shapeComponent: computed('shapeType', function() {

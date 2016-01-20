@@ -6,15 +6,15 @@
   {{/each}}
 {{/svg-container}}
 
-{{#each model.shapes}}
+{{#each model.shapes as |shape|}}
   <div>
     <h3>Shape</h3>
     <pre>
-      X: {{input type="number" value=x}}
-      Y: {{input type="number" value=y}}
-      Width: {{input type="number" value=width}}
-      Height: {{input type="number" value=height}}
-      Fill: {{input value=fill}}
+      X: {{input type="number" value=shape.x}}
+      Y: {{input type="number" value=shape.y}}
+      Width: {{input type="number" value=shape.width}}
+      Height: {{input type="number" value=shape.height}}
+      Fill: {{input value=shape.fill}}
     </pre>
   </div>
 {{/each}}

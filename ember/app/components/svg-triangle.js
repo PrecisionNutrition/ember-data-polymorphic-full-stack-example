@@ -1,3 +1,4 @@
+import Em from 'ember';
 import SVGShape from 'emberpaint/components/svg-shape';
 
 const { computed } = Em;

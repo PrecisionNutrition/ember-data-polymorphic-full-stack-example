@@ -1,7 +1,7 @@
 import DS from 'ember-data';
 import Em from 'ember';
 
-const { attr, hasMany, belongsTo } = DS;
+const { attr, belongsTo } = DS;
 const { computed } = Em;
 
 
@@ -10,7 +10,7 @@ const Shape = DS.Model.extend({
   y: attr('number'),
 
   shapeType: computed(function() {
-    return this.constructor.typeKey;
+    return this.constructor.modelName;
   }),
 
   drawing: belongsTo('drawing', {

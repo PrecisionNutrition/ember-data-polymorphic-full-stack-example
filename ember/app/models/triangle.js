@@ -3,10 +3,6 @@ import Shape from 'emberpaint/models/shape';
 
 const { attr } = DS;
 
-const Triangle = Shape.extend({
-  width: attr('string'),
-  height: attr('string'),
-  fill: attr('string')
-});
+const Triangle = Shape.extend();
 
 export default Triangle;

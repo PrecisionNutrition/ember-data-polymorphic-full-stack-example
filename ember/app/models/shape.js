@@ -6,8 +6,11 @@ const { computed } = Em;
 
 
 const Shape = DS.Model.extend({
-  x: attr('number'),
-  y: attr('number'),
+  x: attr('number', { defaultValue: 0 }),
+  y: attr('number', { defaultValue: 0 }),
+  fill: attr('string', { defaultValue: 'black' }),
+  width: attr('number', { defaultValue: 50 }),
+  height: attr('number', { defaultValue: 50 }),
 
   shapeType: computed(function() {
     return this.constructor.modelName;

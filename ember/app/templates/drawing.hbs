@@ -6,15 +6,11 @@
   {{/each}}
 {{/svg-container}}
 
+<div>
+  <button {{action 'addShape' 'rectangle'}}>&#x25A0;</button>
+  <button {{action 'addShape' 'triangle'}}>&#x25B2;</button>
+</div>
+
 {{#each model.shapes as |shape|}}
-  <div>
-    <h3>Shape</h3>
-    <pre>
-      X: {{input type="number" value=shape.x}}
-      Y: {{input type="number" value=shape.y}}
-      Width: {{input type="number" value=shape.width}}
-      Height: {{input type="number" value=shape.height}}
-      Fill: {{input value=shape.fill}}
-    </pre>
-  </div>
+  {{shape-editor shape=shape}}
 {{/each}}

@@ -1,0 +1,26 @@
+<div class="shape-editor">
+  <h3>{{shape.shapeType}}</h3>
+    <div>
+      X: {{input type="range" min=0 max=shape.drawing.width value=shape.x}}
+    </div>
+
+    <div>
+      Y: {{input type="range" min=0 max=shape.drawing.height value=shape.y}}
+    </div>
+
+    <div>
+      Width: {{input type="range" min=0 max=shape.drawing.width value=shape.width}}
+    </div>
+
+    <div>
+      Height: {{input type="range" min=0 max=shape.drawing.height value=shape.height}}
+    </div>
+
+    <div>
+      Fill: {{input value=shape.fill}}
+    </div>
+
+    <div>
+      <button {{action (action 'save')}}>Save</button>
+    </div>
+</div>

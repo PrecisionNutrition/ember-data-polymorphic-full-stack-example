@@ -1,20 +1,16 @@
 <h3>{{title}}</h3>
 
 {{#svg-container}}
-  {{#each shape in shapes}}
+  {{#each model.shapes as |shape|}}
     {{svg-display shape=shape}}
   {{/each}}
 {{/svg-container}}
 
-{{#each shapes}}
-  <div>
-    <h3>Shape</h3>
-    <pre>
-      X: {{input type="number" value=x}}
-      Y: {{input type="number" value=y}}
-      Width: {{input type="number" value=width}}
-      Height: {{input type="number" value=height}}
-      Fill: {{input value=fill}}
-    </pre>
-  </div>
+<div>
+  <button {{action 'addShape' 'rectangle'}}>&#x25A0;</button>
+  <button {{action 'addShape' 'triangle'}}>&#x25B2;</button>
+</div>
+
+{{#each model.shapes as |shape|}}
+  {{shape-editor shape=shape}}
 {{/each}}

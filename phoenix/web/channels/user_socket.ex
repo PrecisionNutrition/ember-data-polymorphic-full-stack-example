@@ -4,7 +4,9 @@ defmodule EmberPaint.UserSocket do
   require Logger
 
   ## Channels
-  channel "shapes:lobby", EmberPaint.ShapeChannel
+  channel "shapes:*", EmberPaint.ShapeChannel
+  channel "rectangles:*", EmberPaint.ShapeChannel
+  channel "triangles:*", EmberPaint.ShapeChannel
 
   ## Transports
   transport :websocket, Phoenix.Transports.WebSocket

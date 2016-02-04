@@ -1,11 +1,13 @@
 defmodule EmberPaint.ShapeChannel do
   use EmberPaint.Web, :channel
 
+  alias EmberPaint.Shape
+
   require Logger
 
-  def join("shapes:lobby", payload, socket) do
+  def join(topic, payload, socket) do
     if authorized?(payload) do
-      Logger.info "Joining shapes channel"
+      Logger.info "Joining #{topic} channel"
       {:ok, socket}
     else
       {:error, %{reason: "unauthorized"}}
@@ -16,6 +18,24 @@ defmodule EmberPaint.ShapeChannel do
   # by sending replies to requests from the client
   def handle_in("ping", payload, socket) do
     {:reply, {:ok, payload}, socket}
+  end
+
+  # It is also common to receive messages from the client and
+  # broadcast to everyone in the current topic (shapes:lobby).
+  def handle_in("shout", payload, socket) do
+    broadcast socket, "shout", payload
+    {:noreply, socket}
+  end
+
+  def handle_in("show", %{"id" => id}, socket) do
+    [type, action] = String.split(socket.topic, ":", parts: 2)
+    Logger.info "#{action}ing #{type}"
+
+    # require IEx
+    # IEx.pry
+    shape = Repo.get!(Shape, id)
+
+    {:reply, {:ok, shape}, socket}
   end
 
   # It is also common to receive messages from the client and

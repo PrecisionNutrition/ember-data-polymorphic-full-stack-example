@@ -17,6 +17,8 @@ export function initialize(application) {
     socket.onError( ev => console.log("ERROR", ev) );
     socket.onClose( e => console.log("CLOSE", e) );
 
+    socket.joinedChannels = {};
+
     application.register("store:socket", socket, { instantiate: false });
     application.inject("adapter", "socket", "store:socket");
   }

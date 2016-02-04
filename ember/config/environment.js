@@ -6,6 +6,7 @@ module.exports = function(environment) {
     environment: environment,
     baseURL: '/',
     locationType: 'auto',
+    SocketURI: 'ws://localhost:3009/ws',
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -29,7 +30,7 @@ module.exports = function(environment) {
       'default-src': "'none'",
       'script-src': "'self'",
       'font-src': "'self'",
-      'connect-src': "'self' http://localhost:3009",
+      'connect-src': "'self' http://localhost:3009 ws://localhost:3009",
       'img-src': "'self'",
       'style-src': "'self'",
       'media-src': "'self'"

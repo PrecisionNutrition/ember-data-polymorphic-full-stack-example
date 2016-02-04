@@ -1,11 +1,14 @@
 defmodule EmberPaint.UserSocket do
   use Phoenix.Socket
 
+  require Logger
+
   ## Channels
-  # channel "rooms:*", EmberPaint.RoomChannel
+  channel "shapes:lobby", EmberPaint.ShapeChannel
 
   ## Transports
   transport :websocket, Phoenix.Transports.WebSocket
+
   # transport :longpoll, Phoenix.Transports.LongPoll
 
   # Socket params are passed from the client and can
@@ -20,6 +23,7 @@ defmodule EmberPaint.UserSocket do
   # See `Phoenix.Token` documentation for examples in
   # performing token verification on connect.
   def connect(_params, socket) do
+    Logger.info "Socket connected"
     {:ok, socket}
   end
 

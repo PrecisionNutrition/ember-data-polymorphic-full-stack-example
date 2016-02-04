@@ -12,7 +12,8 @@ config :ember_paint, EmberPaint.Endpoint,
   secret_key_base: "UEZothq01YSKx1gIOc76hSr0FjtORHCpj3TDg39cAIUsYv2QeoJp28TgsgP9+tlV",
   render_errors: [accepts: ~w(json)],
   pubsub: [name: EmberPaint.PubSub,
-           adapter: Phoenix.PubSub.PG2]
+           adapter: Phoenix.PubSub.PG2],
+  check_origin: false
 
 # Configures Elixir's Logger
 config :logger, :console,

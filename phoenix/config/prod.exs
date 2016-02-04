@@ -54,6 +54,10 @@ config :logger, level: :info
 # start per endpoint:
 #
 #     config :ember_paint, EmberPaint.Endpoint, server: true
+
+config :ember_paint, EmberPaint.Endpoint,
+  server: true,
+  http: [port: 3009]
 #
 # You will also need to set the application root to `.` in order
 # for the new static assets to be served after a hot upgrade:

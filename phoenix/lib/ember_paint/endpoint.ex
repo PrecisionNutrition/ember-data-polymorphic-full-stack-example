@@ -1,7 +1,7 @@
 defmodule EmberPaint.Endpoint do
   use Phoenix.Endpoint, otp_app: :ember_paint
 
-  socket "/socket", EmberPaint.UserSocket
+  socket "/ws", EmberPaint.UserSocket
 
   # Serve at "/" the static files from "priv/static" directory.
   #
